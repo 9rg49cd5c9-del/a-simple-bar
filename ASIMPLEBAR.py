@@ -1326,19 +1326,26 @@ section[data-testid="stSidebar"] div[data-baseweb="select"] > div {{
     margin-bottom: 20px;
 }}
 
-.quick-card {{
-    min-height: 178px;
+.quick-card {
+    height: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
     background:
         linear-gradient(
             145deg,
             rgba(31, 49, 39, 0.94),
             rgba(14, 18, 15, 0.98)
         );
+
     border: 1px solid rgba(217, 174, 110, 0.24);
     border-radius: 28px;
     padding: 24px 20px;
     margin-bottom: 12px;
     text-align: center;
+
     box-shadow:
         0 18px 45px rgba(0,0,0,0.40),
         inset 0 1px 0 rgba(255,255,255,0.06);
@@ -1637,121 +1644,78 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-q1, q2, q3, q4 = st.columns(4)
+cols = st.columns(4)
 
+quick_filters = [
+    {
+        "emoji": "🍹",
+        "title": "All Drinks",
+        "subtitle": "Camp responsibly. Drink questionably.",
+        "button": "Show All Drinks",
+        "category": "All Drinks",
+        "flavor": "All",
+        "anchor": "all",
+    },
+    {
+        "emoji": "🍹",
+        "title": "Margaritas",
+        "subtitle": "Nature needs tequila.",
+        "button": "Show Margaritas",
+        "category": "Margaritas",
+        "flavor": "All",
+        "anchor": "margaritas",
+    },
+    {
+        "emoji": "🌴",
+        "title": "Fruity Drinks",
+        "subtitle": "Proof that pineapple can’t be trusted.",
+        "button": "Show Fruity Drinks",
+        "category": "All Drinks",
+        "flavor": "Fruity",
+        "anchor": "fruity",
+    },
+    {
+        "emoji": "🥃",
+        "title": "Shots",
+        "subtitle": "When the fire’s lit and so are you.",
+        "button": "Show Shots",
+        "category": "Shots",
+        "flavor": "All",
+        "anchor": "shots",
+    },
+]
 
+for col, item in zip(cols, quick_filters):
 
-with q1:
-    st.markdown(
-        """
-<div class="quick-card">
-    <div class="quick-icon">🍹</div>
-    <div class="quick-title">All Drinks</div>
-    <div class="quick-subtitle">Camp responsibly. Drink questionably.</div>
-</div>
-""",
-        unsafe_allow_html=True,
-    )
-
-    if st.button("Show All Drinks", use_container_width=True):
-        st.session_state.quick_category = "All Drinks"
-        st.session_state.quick_strength = "All"
-        st.session_state.quick_flavor = "All"
-    
-        st.markdown(
-            """
-            <script>
-                window.location.hash = "all";
-            </script>
-            """,
-            unsafe_allow_html=True,
-        )
-    
-        st.rerun()
-        
-with q2:
-    st.markdown(
-        """
-<div class="quick-card">
-    <div class="quick-icon">🍹</div>
-    <div class="quick-title">Margaritas</div>
-    <div class="quick-subtitle">Nature needs tequila.</div>
-</div>
-""",
-        unsafe_allow_html=True,
-    )
-
-    if st.button("Show Margaritas", use_container_width=True):
-        st.session_state.quick_category = "Margaritas"
-        st.session_state.quick_strength = "All"
-        st.session_state.quick_flavor = "All"
+    with col:
 
         st.markdown(
-            """
-            <script>
-                window.location.hash = "margaritas";
-            </script>
-            """,
-            unsafe_allow_html=True,
-        )
-
-        st.rerun()
-
-with q3:
-    st.markdown(
-        """
+            f"""
 <div class="quick-card">
-    <div class="quick-icon">🌴</div>
-    <div class="quick-title">Fruity Drinks</div>
-    <div class="quick-subtitle">Proof that pineapple can’t be trusted.</div>
+    <div class="quick-icon">{item['emoji']}</div>
+    <div class="quick-title">{item['title']}</div>
+    <div class="quick-subtitle">{item['subtitle']}</div>
 </div>
 """,
-        unsafe_allow_html=True,
-    )
-
-    if st.button("Show Fruity Drinks", use_container_width=True):
-        st.session_state.quick_category = "All Drinks"
-        st.session_state.quick_strength = "All"
-        st.session_state.quick_flavor = "Fruity"
-    
-        st.markdown(
-            """
-            <script>
-                window.location.hash = "fruity";
-            </script>
-            """,
             unsafe_allow_html=True,
         )
-    
-        st.rerun()
 
-with q4:
-    st.markdown(
-        """
-<div class="quick-card">
-    <div class="quick-icon">🥃</div>
-    <div class="quick-title">Shots</div>
-    <div class="quick-subtitle">When the fire’s lit and so are you.</div>
-</div>
-""",
-        unsafe_allow_html=True,
-    )
+        if st.button(item["button"], key=item["anchor"], use_container_width=True):
 
-    if st.button("Show Shots", use_container_width=True):
-        st.session_state.quick_category = "Shots"
-        st.session_state.quick_strength = "All"
-        st.session_state.quick_flavor = "All"
-    
-        st.markdown(
-            """
-            <script>
-                window.location.hash = "shots";
-            </script>
-            """,
-            unsafe_allow_html=True,
-        )
-    
-        st.rerun()
+            st.session_state.quick_category = item["category"]
+            st.session_state.quick_strength = "All"
+            st.session_state.quick_flavor = item["flavor"]
+
+            st.markdown(
+                f"""
+                <script>
+                    window.location.hash = "{item['anchor']}";
+                </script>
+                """,
+                unsafe_allow_html=True,
+            )
+
+            st.rerun()
 
 
 # ============================================
