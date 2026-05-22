@@ -1908,16 +1908,16 @@ else:
         if items.empty:
             continue
 
-section_id = category.lower().replace(" ", "-").replace("&", "and")
+        section_id = category.lower().replace(" ", "-").replace("&", "and")
 
-st.markdown(
-    f'''
-    <div id="{section_id}" class="section-title">
-        {category}
-    </div>
-    ''',
-    unsafe_allow_html=True,
-)
+        st.markdown(
+            f'''
+            <div id="{section_id}" class="section-title">
+                {category}
+            </div>
+            ''',
+            unsafe_allow_html=True,
+        )
 
         cols = st.columns(2)
 
