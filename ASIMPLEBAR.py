@@ -1327,7 +1327,7 @@ section[data-testid="stSidebar"] div[data-baseweb="select"] > div {{
 }}
 
 .quick-card {{
-    height: 280px;
+    height: 240px;
     display: flex;
     flex-direction: column;
     justify-content: center;
