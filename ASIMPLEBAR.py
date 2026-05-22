@@ -1706,6 +1706,9 @@ for col, item in zip(cols, quick_filters):
             st.session_state.quick_strength = "All"
             st.session_state.quick_flavor = item["flavor"]
 
+            # Clear random drink card
+            st.session_state.random_drink = None
+
             st.markdown(
                 f"""
                 <script>
