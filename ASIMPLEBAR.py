@@ -1681,21 +1681,21 @@ with q2:
         unsafe_allow_html=True,
     )
 
-   if st.button("Show Margaritas", use_container_width=True):
-    st.session_state.quick_category = "Margaritas"
-    st.session_state.quick_strength = "All"
-    st.session_state.quick_flavor = "All"
-
-    st.markdown(
-        """
-        <script>
-            window.location.hash = "margaritas";
-        </script>
-        """,
-        unsafe_allow_html=True,
-    )
-
-    st.rerun()
+       if st.button("Show Margaritas", use_container_width=True):
+        st.session_state.quick_category = "Margaritas"
+        st.session_state.quick_strength = "All"
+        st.session_state.quick_flavor = "All"
+    
+        st.markdown(
+            """
+            <script>
+                window.location.hash = "margaritas";
+            </script>
+            """,
+            unsafe_allow_html=True,
+        )
+    
+        st.rerun()
 
 with q3:
     st.markdown(
