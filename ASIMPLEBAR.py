@@ -1653,21 +1653,21 @@ with q1:
         unsafe_allow_html=True,
     )
 
-if st.button("Show All Drinks", use_container_width=True):
-    st.session_state.quick_category = "All Drinks"
-    st.session_state.quick_strength = "All"
-    st.session_state.quick_flavor = "All"
-
-    st.markdown(
-        """
-        <script>
-            window.location.hash = "all";
-        </script>
-        """,
-        unsafe_allow_html=True,
-    )
-
-    st.rerun()
+    if st.button("Show All Drinks", use_container_width=True):
+        st.session_state.quick_category = "All Drinks"
+        st.session_state.quick_strength = "All"
+        st.session_state.quick_flavor = "All"
+    
+        st.markdown(
+            """
+            <script>
+                window.location.hash = "all";
+            </script>
+            """,
+            unsafe_allow_html=True,
+        )
+    
+        st.rerun()
         
 with q2:
     st.markdown(
@@ -1709,21 +1709,21 @@ with q3:
         unsafe_allow_html=True,
     )
 
-if st.button("Show Fruity Drinks", use_container_width=True):
-    st.session_state.quick_category = "All Drinks"
-    st.session_state.quick_strength = "All"
-    st.session_state.quick_flavor = "Fruity"
-
-    st.markdown(
-        """
-        <script>
-            window.location.hash = "fruity";
-        </script>
-        """,
-        unsafe_allow_html=True,
-    )
-
-    st.rerun()
+    if st.button("Show Fruity Drinks", use_container_width=True):
+        st.session_state.quick_category = "All Drinks"
+        st.session_state.quick_strength = "All"
+        st.session_state.quick_flavor = "Fruity"
+    
+        st.markdown(
+            """
+            <script>
+                window.location.hash = "fruity";
+            </script>
+            """,
+            unsafe_allow_html=True,
+        )
+    
+        st.rerun()
 
 with q4:
     st.markdown(
@@ -1737,21 +1737,21 @@ with q4:
         unsafe_allow_html=True,
     )
 
-if st.button("Show Shots", use_container_width=True):
-    st.session_state.quick_category = "Shots"
-    st.session_state.quick_strength = "All"
-    st.session_state.quick_flavor = "All"
-
-    st.markdown(
-        """
-        <script>
-            window.location.hash = "shots";
-        </script>
-        """,
-        unsafe_allow_html=True,
-    )
-
-    st.rerun()
+    if st.button("Show Shots", use_container_width=True):
+        st.session_state.quick_category = "Shots"
+        st.session_state.quick_strength = "All"
+        st.session_state.quick_flavor = "All"
+    
+        st.markdown(
+            """
+            <script>
+                window.location.hash = "shots";
+            </script>
+            """,
+            unsafe_allow_html=True,
+        )
+    
+        st.rerun()
 
 
 # ============================================
