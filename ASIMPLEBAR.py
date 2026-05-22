@@ -1786,7 +1786,7 @@ if search:
 # RANDOM DRINK PICKER
 # ============================================
 
-st.markdown(
+st.sidebar.markdown(
     """
 <div class="quick-filter-title">Feeling Lucky?</div>
 <div class="quick-filter-subtitle">
@@ -1796,7 +1796,7 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-random_col1, random_col2 = st.columns(2)
+random_col1, random_col2 = st.sidebar.columns(2)
 
 with random_col1:
     if st.button("🎲 Random Drink Picker", use_container_width=True):
