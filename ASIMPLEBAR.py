@@ -33,7 +33,7 @@ def get_base64_image(image_path):
 
 
 # Header image path
-bg_image = get_base64_image("/Users/cierahenika/camping.jpg")
+bg_image = get_base64_image("camping.jpg")
 
 if bg_image:
     hero_background = f"""
