@@ -1281,32 +1281,7 @@ fourth_of_july_drinks = [
 
 drinks.extend(fourth_of_july_drinks)
 
-st.subheader("🇺🇸 4th of July Specials")
 
-holiday_drinks = [
-    drink for drink in drinks
-    if drink["name"] in [
-        "Red, White & Blue Berry Lemonade",
-        "Firecracker Margarita",
-        "Patriotic Punch",
-        "Liberty Lemon Drop Shot",
-        "Stars & Stripes Mocktail",
-    ]
-]
-
-for drink in holiday_drinks:
-    with st.expander(f"🎆 {drink['name']}"):
-        st.write(drink["description"])
-
-        st.markdown("**Ingredients**")
-        st.write("\n".join([f"• {item}" for item in drink["ingredients"]]))
-
-        st.markdown("**Instructions**")
-        st.write(
-            "\n".join(
-                [f"{i + 1}. {step}" for i, step in enumerate(drink["recipe"])]
-            )
-        )
 
 df = pd.DataFrame(drinks)
 
@@ -1784,7 +1759,35 @@ st.markdown(
 """,
     unsafe_allow_html=True,
 )
+# ============================================
+# 4th of July
+# ============================================
+st.subheader("🇺🇸 4th of July Specials")
 
+holiday_drinks = [
+    drink for drink in drinks
+    if drink["name"] in [
+        "Red, White & Blue Berry Lemonade",
+        "Firecracker Margarita",
+        "Patriotic Punch",
+        "Liberty Lemon Drop Shot",
+        "Stars & Stripes Mocktail",
+    ]
+]
+
+for drink in holiday_drinks:
+    with st.expander(f"🎆 {drink['name']}"):
+        st.write(drink["description"])
+
+        st.markdown("**Ingredients**")
+        st.write("\n".join([f"• {item}" for item in drink["ingredients"]]))
+
+        st.markdown("**Instructions**")
+        st.write(
+            "\n".join(
+                [f"{i + 1}. {step}" for i, step in enumerate(drink["recipe"])]
+            )
+        )
 
 # ============================================
 # QUICK FILTER CARDS
