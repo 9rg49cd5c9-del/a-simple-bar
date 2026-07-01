@@ -1796,11 +1796,12 @@ st.subheader("🇺🇸 4th of July Specials")
 holiday_drinks = [
     drink for drink in drinks
     if drink["name"] in [
-        "Red, White & Blue Berry Lemonade",
-        "Firecracker Margarita",
-        "Patriotic Punch",
-        "Liberty Lemon Drop Shot",
-        "Stars & Stripes Mocktail",
+        "Firework Fizz",
+        "Red White & Boozy",
+        "Sparkler Shot",
+        "Cherry Bomb Pop",
+        "Rocket Pop Margarita",
+        "Star Spangled Lemonade",
     ]
 ]
 
