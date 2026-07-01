@@ -1152,6 +1152,162 @@ drinks = [
     },
 ]
 
+fourth_of_july_drinks = [
+    {
+        "name": "Red, White & Blue Berry Lemonade",
+        "category": "Cocktails",
+        "description": "A bright layered vodka lemonade with berry flavor.",
+        "emoji": "🇺🇸",
+        "strength": "Medium",
+        "vibe": "4th of July",
+        "tags": ["Vodka", "Berry", "Lemonade", "Patriotic"],
+        "flavor": "Sweet, Fruity, Citrus",
+        "ingredients": [
+            "1.5 oz vodka",
+            "1 oz blue curaçao",
+            "3 oz lemonade",
+            "0.5 oz grenadine",
+            "Fresh blueberries and strawberries",
+            "Ice",
+        ],
+        "recipe": [
+            "Fill a tall glass with ice.",
+            "Pour in grenadine first.",
+            "Slowly add lemonade and vodka.",
+            "Float blue curaçao on top.",
+            "Garnish with berries.",
+        ],
+    },
+    {
+        "name": "Firecracker Margarita",
+        "category": "Margaritas",
+        "description": "A festive strawberry-lime margarita with a spicy kick.",
+        "emoji": "🎆",
+        "strength": "Strong",
+        "vibe": "4th of July",
+        "tags": ["Tequila", "Strawberry", "Jalapeño", "Patriotic"],
+        "flavor": "Sweet, Tart, Spicy",
+        "ingredients": [
+            "2 oz tequila",
+            "1 oz triple sec",
+            "1 oz lime juice",
+            "1 oz strawberry purée",
+            "0.25 oz agave syrup",
+            "Jalapeño slices",
+            "Tajín or salt for rim",
+            "Ice",
+        ],
+        "recipe": [
+            "Rim glass with Tajín or salt.",
+            "Muddle one or two jalapeño slices in a shaker.",
+            "Add tequila, triple sec, lime juice, strawberry purée, agave, and ice.",
+            "Shake well and strain over fresh ice.",
+            "Garnish with a strawberry or lime wheel.",
+        ],
+    },
+    {
+        "name": "Patriotic Punch",
+        "category": "Camp Favorites",
+        "description": "An easy batch cocktail for a crowd.",
+        "emoji": "🧨",
+        "strength": "Medium",
+        "vibe": "4th of July",
+        "tags": ["Vodka", "Punch", "Berry", "Party"],
+        "flavor": "Fruity, Sweet, Refreshing",
+        "ingredients": [
+            "2 cups vodka",
+            "2 cups berry punch",
+            "2 cups lemonade",
+            "1 cup blue raspberry sports drink",
+            "Fresh strawberries and blueberries",
+            "Lemon slices",
+            "Ice",
+        ],
+        "recipe": [
+            "Combine vodka, berry punch, and lemonade in a large dispenser.",
+            "Add ice, strawberries, blueberries, and lemon slices.",
+            "Pour blue raspberry drink slowly over the top for a blue layer.",
+            "Serve immediately.",
+        ],
+    },
+    {
+        "name": "Liberty Lemon Drop Shot",
+        "category": "Shots",
+        "description": "A red-white-blue lemon shot that is easy to make in batches.",
+        "emoji": "🍋",
+        "strength": "Strong",
+        "vibe": "4th of July",
+        "tags": ["Vodka", "Lemon", "Blue Curaçao", "Patriotic"],
+        "flavor": "Sweet, Lemon, Berry",
+        "ingredients": [
+            "1 oz vodka",
+            "0.5 oz blue curaçao",
+            "0.5 oz lemonade",
+            "Splash of grenadine",
+            "Sugar for rim",
+        ],
+        "recipe": [
+            "Rim shot glass with sugar.",
+            "Shake vodka, blue curaçao, and lemonade with ice.",
+            "Pour into shot glass.",
+            "Add a tiny splash of grenadine for a red finish.",
+        ],
+    },
+    {
+        "name": "Stars & Stripes Mocktail",
+        "category": "Mocktails",
+        "description": "A kid-friendly layered berry lemonade.",
+        "emoji": "⭐",
+        "strength": "None",
+        "vibe": "4th of July",
+        "tags": ["Mocktail", "Berry", "Lemonade", "Patriotic"],
+        "flavor": "Sweet, Fruity, Citrus",
+        "ingredients": [
+            "3 oz lemonade",
+            "2 oz cranberry juice",
+            "1 oz blue sports drink",
+            "Fresh berries",
+            "Ice",
+        ],
+        "recipe": [
+            "Fill a clear glass with ice.",
+            "Pour cranberry juice in first.",
+            "Slowly add lemonade.",
+            "Float blue sports drink on top.",
+            "Garnish with fresh berries.",
+        ],
+    },
+]
+
+drinks.extend(fourth_of_july_drinks)
+
+st.subheader("🇺🇸 4th of July Specials")
+
+holiday_drinks = [
+    drink for drink in drinks
+    if drink["name"] in [
+        "Red, White & Blue Berry Lemonade",
+        "Firecracker Margarita",
+        "Patriotic Punch",
+        "Liberty Lemon Drop Shot",
+        "Stars & Stripes Mocktail",
+    ]
+]
+
+for drink in holiday_drinks:
+    with st.expander(f"🎆 {drink['name']}"):
+        st.write(drink["description"])
+
+        st.markdown("**Ingredients**")
+        st.write("\n".join([f"• {item}" for item in drink["ingredients"]]))
+
+        st.markdown("**Instructions**")
+        st.write(
+            "\n".join(
+                [f"{i + 1}. {step}" for i, step in enumerate(drink["recipe"])]
+            )
+        )
+
 df = pd.DataFrame(drinks)
 
 category_order = [
